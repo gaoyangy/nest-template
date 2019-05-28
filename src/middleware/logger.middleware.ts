@@ -2,7 +2,7 @@
  * @Description: logger
  * @Author: alien
  * @Date: 2019-05-27 20:17:48
- * @LastEditTime: 2019-05-28 10:04:49
+ * @LastEditTime: 2019-05-28 10:25:06
  */
 import { Injectable, NestMiddleware } from '@nestjs/common';
 import { Request, Response } from 'express';
