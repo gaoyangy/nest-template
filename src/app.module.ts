@@ -9,11 +9,15 @@ import { LoggerMiddleware } from './middleware/logger.middleware';
 import * as helmet from 'helmet';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-
+import { LoggingInterceptor } from './interceptors/logging';
+import { APP_INTERCEPTOR } from '@nestjs/core';
 @Module({
   imports: [],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, {
+    provide: APP_INTERCEPTOR,
+    useClass: LoggingInterceptor,
+  }],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
